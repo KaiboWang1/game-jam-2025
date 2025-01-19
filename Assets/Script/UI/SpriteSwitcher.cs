@@ -10,6 +10,8 @@ public class SpriteSwitcher : MonoBehaviour
     private float switchTime = 0.5f;  // 每次切换的时间间隔
     private float timeElapsed = 0f;
     private int currentIndex = 0;  // 当前显示的Sprite索引
+    public bool isLooping = false;
+    public bool isActive = false;
 
     void Start()
     {
@@ -27,15 +29,32 @@ public class SpriteSwitcher : MonoBehaviour
 
     void Update()
     {
-        timeElapsed += Time.deltaTime;  // 累加时间
-
-        if (timeElapsed >= switchTime)
+        if (isActive)
         {
-            // 切换到下一个Sprite
-            currentIndex = (currentIndex + 1) % sprites.Count;  // 使用模运算确保循环
-            spriteRenderer.sprite = sprites[currentIndex];
+            timeElapsed += Time.deltaTime;  // 累加时间
 
-            timeElapsed = 0f;  // 重置时间
+            if (timeElapsed >= switchTime)
+            {
+                // 切换到下一个Sprite
+                if (isLooping)
+                {
+                    currentIndex = (currentIndex + 1) % sprites.Count;  // 使用模运算确保循环
+                }
+                else
+                {
+                    currentIndex = currentIndex < sprites.Count - 1 ? currentIndex + 1 : sprites.Count - 1;
+                }
+
+                spriteRenderer.sprite = sprites[currentIndex];
+
+                timeElapsed = 0f;  // 重置时间
+            }
         }
+    }
+
+    public void PlayFromStart()
+    {
+        isActive = true;
+        currentIndex = 0;
     }
 }
