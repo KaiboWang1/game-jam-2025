@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// GameManager类负责管理游戏的整体流程，包括开始和结束游戏的逻辑。
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-
+    public float startGameDelay = 1.2f;
     /// <summary>
     /// 开始游戏的函数。可以通过UI按钮调用。
     /// </summary>
     public void StartGame()
     {
         Time.timeScale = 1.0f; // 游戏时间开始流动
+        StartCoroutine(StartGameDelayed());
         // 可以在这里添加其他开始游戏时需要执行的逻辑
     }
 
@@ -41,5 +43,11 @@ public class GameManager : MonoBehaviour
     void OnDisable()
     {
         PlayerMovement.OnVolumeDepleted -= EndGame; // 取消订阅事件
+    }
+
+    public IEnumerator StartGameDelayed()
+    { 
+        yield return new WaitForSeconds(startGameDelay);
+        SceneManager.LoadScene("CupDemo",LoadSceneMode.Single);
     }
 }
