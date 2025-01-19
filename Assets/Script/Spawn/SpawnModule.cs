@@ -5,7 +5,6 @@ using UnityEngine;
 [Serializable]
 public class SpawnInfo{
     public GameObject prefab;
-    public int maxCount;
     public float chance;
 }
 
