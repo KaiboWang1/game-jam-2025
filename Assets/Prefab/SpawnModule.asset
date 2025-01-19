@@ -19,6 +19,18 @@ MonoBehaviour:
   - prefab: {fileID: 8071616182929263297, guid: cde512bc5a3194042b83552c90735327, type: 3}
     maxCount: 0
     chance: 0.3
+  - prefab: {fileID: 8280283979443253781, guid: 22f26ffea08fe334dbf7454d682d2b65, type: 3}
+    maxCount: 0
+    chance: 0.1
+  - prefab: {fileID: 3989259552469929367, guid: e6874411d19f1cc49a5e19fef1c8a2fe, type: 3}
+    maxCount: 0
+    chance: 0.1
+  - prefab: {fileID: 8740837224037222056, guid: b2037623765467442842f42520220256, type: 3}
+    maxCount: 0
+    chance: 0.1
+  - prefab: {fileID: 2097679979127616691, guid: d358f536d7702aa40b471483aac55dc7, type: 3}
+    maxCount: 0
+    chance: 0.1
   - prefab: {fileID: 1500523025321467059, guid: e1a7ca3fcf9e9b14d95bac2c8d202126, type: 3}
     maxCount: 0
-    chance: 0.3
+    chance: 0.5

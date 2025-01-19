@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fd1dbb29a6eb4a8dfde2bddfe2697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeChange: -1
+  volumeChange: -0.1
 --- !u!61 &6019410510095577479
 BoxCollider2D:
   m_ObjectHideFlags: 0
