@@ -379,6 +379,7 @@ MonoBehaviour:
   volumeConsumptionRate: 0.1
   constantUpwardSpeed: 1
   dragFactor: 0.95
+  minVolume: 0.1
 --- !u!50 &1750347179
 Rigidbody2D:
   serializedVersion: 4

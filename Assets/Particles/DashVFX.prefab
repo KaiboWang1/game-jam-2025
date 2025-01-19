@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7919307283173071865}
   - component: {fileID: 711062059359749119}
   - component: {fileID: 2348577174245587847}
+  - component: {fileID: 975709604703570987}
   m_Layer: 0
   m_Name: DashVFX
   m_TagString: Untagged
@@ -50,7 +51,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4830,3 +4831,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &975709604703570987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58590521453827662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89ad9d81299702046aae29671aaf5a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
