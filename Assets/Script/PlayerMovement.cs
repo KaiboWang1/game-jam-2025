@@ -27,13 +27,15 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity *= dragFactor; // 应用阻力
-    }
-
-
-    void Update()
-    {
         float sqrtVolume = Mathf.Sqrt(volume); // 计算体积的平方根
         rb.velocity = new Vector2(rb.velocity.x, constantUpwardSpeed * sqrtVolume); // 更新速度
+    }
+
+    public float minVolume = 0.1f; // 最小体积值
+    void Update()
+    {
+        //float sqrtVolume = Mathf.Sqrt(volume); // 计算体积的平方根
+        //rb.velocity = new Vector2(rb.velocity.x, constantUpwardSpeed * sqrtVolume); // 更新速度
 
         if (Input.GetMouseButton(0)) // 检测鼠标输入
         {
@@ -42,13 +44,13 @@ public class PlayerMovement : MonoBehaviour
         
         AdjustSize(); // 根据体积调整主角大小
         
-        if (volume < 0.1f) // 如果体积小于0.1f，则广播事件
+        if (volume < minVolume) // 如果体积小于0.1f，则广播事件
         {
-            volume = 0.1f; // 确保体积不会小于某个值
+            volume = minVolume; // 确保体积不会小于某个值
             OnVolumeDepleted?.Invoke(); // 广播事件
         }
     }
-
+    
     /// <summary>
     /// 处理喷射逻辑，消耗体积并施加力。
     /// </summary>
@@ -69,4 +71,18 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.localScale = new Vector3(volume, volume, 1); // 调整缩放
     }
+
+    #region  Public Methods
+    public void AddVolume(float amount)
+    {
+        volume += amount;
+        AdjustSize();
+    }
+    public void OnHit(float volumeChange)
+    {
+        AddVolume(volumeChange);
+        //PlaySound();
+        //PlayAnimation();
+    }
+    #endregion
 }
