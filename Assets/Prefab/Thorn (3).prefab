@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3983068037415620633}
   - component: {fileID: 3833399293207083016}
   - component: {fileID: 6019410510095577479}
-  - component: {fileID: 1506863727266170514}
   m_Layer: 0
   m_Name: Thorn (3)
   m_TagString: Untagged
@@ -145,18 +144,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1506863727266170514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500523025321467059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0edea1bf4d282b49a7239a5c5847f92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minRotateSpeed: 0.1
-  maxRotateSpeed: 0.5
-  maxMoveSpeed: 0.05
