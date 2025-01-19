@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
         // 例如：endGameUI.SetActive(true);
     }
 
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
     /// <summary>
     /// Unity生命周期方法，脚本启用时调用。用于订阅事件。
     /// </summary>
