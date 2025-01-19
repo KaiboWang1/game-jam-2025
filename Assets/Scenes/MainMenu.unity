@@ -567,7 +567,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ad6b4fb3ea20ec04d80c47ff1b87bca3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 17ad331a092a02748bc312d0272f011c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -816,7 +816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2c133a3e0b837458779718656ca42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startGameDelay: 1.2
+  startGameDelay: 2.4
 --- !u!4 &859453078
 Transform:
   m_ObjectHideFlags: 0
@@ -1405,7 +1405,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 04f6c4d7e922b1b40af2c0227f51a48f, type: 3}
   - {fileID: 21300000, guid: 8102ef65ce9356e4db193fe46f4a997a, type: 3}
   - {fileID: 21300000, guid: be5d5d8c32f5325409448b4b1ec40330, type: 3}
-  switchTime: 0.1
+  switchTime: 0.15
   isLooping: 0
   isActive: 0
 --- !u!1 &1303653235
