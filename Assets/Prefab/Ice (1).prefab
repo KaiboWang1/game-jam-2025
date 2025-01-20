@@ -77,9 +77,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 006315ef51ed61f44b5f4b28b09fb029, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7176471}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e0eb3eda3120b40a369c75e09fc971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  radius: 2
   curve:
     serializedVersion: 2
     m_Curve:
@@ -126,7 +126,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  forceFactor: -40
+  forceFactor: -20
 --- !u!114 &5661534423077585572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1522366091329222166, guid: c4ec657cf7ea85644bca0da295bbb518, type: 3}
       propertyPath: m_SortingOrder
-      value: -10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1522366091329222166, guid: c4ec657cf7ea85644bca0da295bbb518, type: 3}
       propertyPath: m_Materials.Array.size
