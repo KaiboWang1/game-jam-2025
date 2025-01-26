@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public float startGameDelay = 1.2f;
+    public float endGameDelay = 3f; // Bubble explosion time
     /// <summary>
     /// 开始游戏的函数。可以通过UI按钮调用。
     /// </summary>
@@ -16,7 +17,6 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f; // 游戏时间开始流动
         StartCoroutine(StartGameDelayed());
-        // 可以在这里添加其他开始游戏时需要执行的逻辑
     }
 
     /// <summary>
@@ -24,9 +24,13 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
-        Time.timeScale = 0.0f; // 游戏时间暂停
-        // 显示结束UI
-        // 例如：endGameUI.SetActive(true);
+        StartCoroutine(EndGameDelayed());
+    }
+
+    public IEnumerator EndGameDelayed()
+    {
+        yield return new WaitForSeconds(startGameDelay);
+        SceneManager.LoadScene("EndMenu", LoadSceneMode.Single);
     }
 
     public void ReturnToMainMenu()
@@ -40,6 +44,7 @@ public class GameManager : MonoBehaviour
     void OnEnable()
     {
         PlayerMovement.OnVolumeDepleted += EndGame; // 订阅事件
+        PlayerMovement.OnEscaped += EndGame;
     }
 
     /// <summary>
@@ -48,6 +53,7 @@ public class GameManager : MonoBehaviour
     void OnDisable()
     {
         PlayerMovement.OnVolumeDepleted -= EndGame; // 取消订阅事件
+        PlayerMovement.OnEscaped -= EndGame;
     }
 
     public IEnumerator StartGameDelayed()

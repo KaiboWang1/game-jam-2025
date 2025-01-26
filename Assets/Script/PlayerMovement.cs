@@ -14,10 +14,13 @@ public class PlayerMovement : MonoBehaviour
     public float volumeConsumptionRate = 0.1f; // 喷射时体积消耗率
     public float constantUpwardSpeed = 1.0f; // 恒定的向上速度
     public float dragFactor = 0.95f; // 阻力因子
+    public float playerScore = 0f;
+    public float scoreFactor = 1f;
 
     private Rigidbody2D rb; // 玩家角色的刚体组件
 
     public static event Action OnVolumeDepleted; // 定义一个静态事件，当体积耗尽时触发
+    public static event Action OnEscaped; // 定义一个静态事件，当体积耗尽时触发
 
     void Start()
     {
@@ -37,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
         //float sqrtVolume = Mathf.Sqrt(volume); // 计算体积的平方根
         //rb.velocity = new Vector2(rb.velocity.x, constantUpwardSpeed * sqrtVolume); // 更新速度
 
+        playerScore += Time.deltaTime * scoreFactor;
+
         if (Input.GetMouseButton(0)) // 检测鼠标输入
         {
             Spray(); // 执行喷射
@@ -47,8 +52,24 @@ public class PlayerMovement : MonoBehaviour
         if (volume < minVolume) // 如果体积小于0.1f，则广播事件
         {
             volume = minVolume; // 确保体积不会小于某个值
+            SavePlayerScore(0);
             OnVolumeDepleted?.Invoke(); // 广播事件
         }
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Escape") // end the game
+        {
+            SavePlayerScore(100);
+            OnEscaped?.Invoke();
+        }
+    }
+
+    public void SavePlayerScore(int bonus)
+    {
+        PlayerPrefs.SetInt("PlayerScore", (int)playerScore + bonus);  // Save playerScore
+        PlayerPrefs.Save(); 
+        Debug.Log("Score saved: " + playerScore);
     }
     
     /// <summary>
